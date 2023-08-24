@@ -1,3 +1,8 @@
+body {
+    background-image: url('/images/clouds.jpg');
+    background-size: cover;
+}
+
 .title {
     display: flex;
     justify-content: center;
@@ -12,4 +17,12 @@ h1 {
     background-image:linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
     -webkit-background-clip: text;
     color: transparent;
+}
+
+.grid {
+    border-color: rgb(38, 0, 253);
+    border-style: solid;
+    border-width: 12px;
+    border-radius: 5px;
+    margin: 0px 40px 0px 40px;
 }
