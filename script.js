@@ -1,6 +1,8 @@
 const grid = document.querySelector('.grid');//creates grid
 const body = document.querySelector('*');
 const clearButton = document.querySelector('#clear-button');
+const colorButton = document.querySelector('#change-color');
+const colorMenu = document.querySelectorAll('.color-menu>li');
 let mouseDown = 0;
 
 body.onmousedown = ()=> {mouseDown=1;};
@@ -24,6 +26,27 @@ for(let j = 0 ; j<16 ; j++) {
     divs.addEventListener('mouseover' , ()=> {if(mouseDown===1){divs.style.backgroundColor ='red';}})
     clearButton.addEventListener('click',()=>{divs.style.backgroundColor = '';})
 }}
+
+
+
+
+//const colorMenu = document.querySelectorAll('.color-menu>li');
+colorMenu.forEach(li=>{
+    li.style.backgroundColor = li.textContent;
+
+    li.addEventListener('mouseover', ()=>{
+        li.style.borderStyle = 'solid';
+        li.style.borderColor = 'black';
+        li.style.borderWidth = '1mm';
+    });
+    li.addEventListener('mouseout' , ()=>{
+        li.style.borderStyle = 'none';
+    });
+
+
+
+});
+
 
 
 
