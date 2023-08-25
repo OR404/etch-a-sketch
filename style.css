@@ -51,7 +51,7 @@ button {
 
 .change-color-div>.color-menu {
     transform:translateY(-160px);
-    /*display: none;*/
+    display: none;
     width: 250px;
     height: 147px;
     text-align: center;
