@@ -26,3 +26,20 @@ h1 {
     border-radius: 5px;
     margin: 0px 40px 0px 40px;
 }
+
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 15px;
+}
+
+.bottom-buttons>button {
+    font-weight: bold;
+    color: white;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(0, 140, 255);
+    border-radius: 3mm;
+}
+
