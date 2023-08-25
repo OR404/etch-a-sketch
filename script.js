@@ -1,11 +1,14 @@
 const grid = document.querySelector('.grid');
 const clearButton = document.querySelector('#clear-button');
-
 const colorButton = document.querySelector('#change-color');
+const changeDensityButton = document.querySelector('#change-density');
 const colorMenu = document.querySelector('.color-menu');
+const densityMenu = document.querySelector('.density-menu');
 const colorMenuList = document.querySelectorAll('.color-menu>li');
 let colorMenuStatus = false;
-let color = 'red';
+let densityMenuStatus = false;
+let color = 'black';
+
 
 let mouseDown = 0;
 grid.onmousedown = ()=> {mouseDown=1;};
@@ -52,6 +55,22 @@ colorButton.addEventListener('click' ,()=>{//open and close color menu
         colorMenuStatus = false;
     }
 });
+
+changeDensityButton.addEventListener('click' ,()=>{//open and close density menu
+    if(!densityMenuStatus) {
+        densityMenu.style.display = 'flex';
+        densityMenu.style.visibility = 'visible';
+        densityMenuStatus = true;
+    }
+    else {
+        densityMenu.style.display= 'none';
+        densityMenu.style.visibility = 'hidden';
+        densityMenuStatus = false;
+    }
+
+} )
+
+
 
     
 
