@@ -1,8 +1,11 @@
 const grid = document.querySelector('.grid');//creates grid
 let body = document.querySelector('*');
 let mouseDown = 0;
-for(let i = 0 ; i<16 ;i++) {
+body.onmousedown = ()=> {mouseDown=1;};
+body.onmouseup = ()=> {mouseDown=0};
 
+
+for(let i = 0 ; i<16 ;i++) {
     let vertical = document.createElement('div');
     vertical.style.display = 'flex';
     grid.appendChild(vertical);
@@ -15,18 +18,16 @@ for(let j = 0 ; j<16 ; j++) {
     divs.style.borderRadius = '0.3mm';
     divs.style.borderStyle = 'solid';
     vertical.appendChild(divs);
-}
-}
-let para = document.createElement('p');//for testing
-grid.appendChild(para);//for testing
-body.onmousedown = ()=> {
-    mouseDown=1;
-    para.textContent = mouseDown;
-};
-body.onmouseup = ()=> {
-    mouseDown=0
-    para.textContent = mouseDown;
-};
+    divs.addEventListener('click', ()=>{divs.style.backgroundColor ='red';})
+    divs.addEventListener('mouseover' , ()=> {if(mouseDown===1){divs.style.backgroundColor ='red';}})
+}}
+
+
+
+
+
+
+
 
 
 
