@@ -9,17 +9,18 @@ const verticalDivsInput = document.querySelector('.vertical-divs-input');
 const horizontalDivsInput = document.querySelector('.horizontal-divs-input');
 let colorMenuStatus = false;
 let densityMenuStatus = false;
-let divsColor = 'black';
-let verticalDivs = 100;
-let horizontalDivs = 100;
-const divHeight = 1000/verticalDivs;//will need to calculate wanted ratio tomorow
-const divWidth = 2380/horizontalDivs ;////will need to calculate wanted ratio tomorow
+let divsColor = 'black'; //user can change that value with colorMenuList
+let verticalDivs = verticalDivsInput.value;//user can change that value with verticalDivsInput
+let horizontalDivs = horizontalDivsInput.value;//user can change that value with horizontalDivsInput
+let divHeight = 1000/verticalDivs;
+let divWidth = 2380/horizontalDivs;
 
 
 let mouseDown = 0;
-grid.onmousedown = ()=> {mouseDown=1;};
+grid.onmousedown = ()=> {mouseDown=1;}; // 
 grid.onmouseup = ()=> {mouseDown=0};
 
+function createGrid() {
 for(let i = 0 ; i<verticalDivs ;i++) {//creates grid
     let vertical = document.createElement('div');
     vertical.style.display = 'flex';
@@ -36,7 +37,20 @@ for(let j = 0 ; j<horizontalDivs ; j++) {
     divs.addEventListener('mouseover' , ()=> {if(mouseDown===1){divs.style.backgroundColor =divsColor;}})
     clearButton.addEventListener('click',()=>{divs.style.backgroundColor = '';})
 }}
+}
+createGrid();
 
+
+colorButton.addEventListener('click' ,()=>{//open and close color menu
+    if(!colorMenuStatus) {
+    colorMenu.style.display= 'block';
+    colorMenuStatus = true;
+}
+    else {
+        colorMenu.style.display= 'none';
+        colorMenuStatus = false;
+    }
+});
 
 colorMenuList.forEach(li=>{//select different color functionality
     li.style.backgroundColor = li.textContent;
@@ -48,17 +62,6 @@ colorMenuList.forEach(li=>{//select different color functionality
     });
     li.addEventListener('mouseout' , ()=>{li.style.borderStyle = 'none';});
     li.addEventListener('click' , ()=> {divsColor=li.textContent;});
-});
-
-colorButton.addEventListener('click' ,()=>{//open and close color menu
-    if(!colorMenuStatus) {
-    colorMenu.style.display= 'block';
-    colorMenuStatus = true;
-}
-    else {
-        colorMenu.style.display= 'none';
-        colorMenuStatus = false;
-    }
 });
 
 changeDensityButton.addEventListener('click' ,()=>{//open and close density menu
@@ -75,6 +78,23 @@ changeDensityButton.addEventListener('click' ,()=>{//open and close density menu
 
 } )
 
+
+densityMenu.addEventListener('keydown' ,(event)=> { //creates new grid size with new user values
+    if(event.key==='Enter') {
+        while(grid.firstChild) {
+            grid.removeChild(grid.firstChild);
+        }
+        if(verticalDivsInput.value>100) {verticalDivsInput.value=100};
+        if(horizontalDivsInput.value>100) {horizontalDivsInput.value=100};
+        verticalDivs=verticalDivsInput.value;
+        horizontalDivs=horizontalDivsInput.value;
+        divHeight = 1000/verticalDivs;
+        divWidth =  2380/horizontalDivs;
+        createGrid();
+    }
+
+
+})
 
 
 

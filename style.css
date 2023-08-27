@@ -84,9 +84,13 @@ button {
 
 input {
     width: 50px;
-    height: 25px;
+    height: 35px;
+    padding-left:15px;
     background-color: cyan;
     text-align: center;
+    font-size: 22px;
+    border-radius: 3mm;
+    
 }
 
 
