@@ -10,17 +10,15 @@ const horizontalDivsInput = document.querySelector('.horizontal-divs-input');
 let colorMenuStatus = false;
 let densityMenuStatus = false;
 let divsColor = 'black';
-let verticalDivs = 16;
-let horizontalDivs = 16;
-
-const divWidth = 100 / horizontalDivs ;////will need to calculate wanted ratio tomorow
-const divHeight = 100 / verticalDivs ;//will need to calculate wanted ratio tomorow
+let verticalDivs = 100;
+let horizontalDivs = 100;
+const divHeight = 1000/verticalDivs;//will need to calculate wanted ratio tomorow
+const divWidth = 2380/horizontalDivs ;////will need to calculate wanted ratio tomorow
 
 
 let mouseDown = 0;
 grid.onmousedown = ()=> {mouseDown=1;};
 grid.onmouseup = ()=> {mouseDown=0};
-
 
 for(let i = 0 ; i<verticalDivs ;i++) {//creates grid
     let vertical = document.createElement('div');
@@ -29,10 +27,10 @@ for(let i = 0 ; i<verticalDivs ;i++) {//creates grid
 
 for(let j = 0 ; j<horizontalDivs ; j++) {
     let divs = document.createElement('div');
-    divs.style.height = "65px";
-    divs.style.width = "149px";
+    divs.style.height = (`${divHeight}px`);
+    divs.style.width = (`${divWidth}px`);;
     divs.style.borderWidth = '2px';
-  divs.style.borderStyle = 'solid';
+  //divs.style.borderStyle = 'solid';
     vertical.appendChild(divs);
     divs.addEventListener('click', ()=>{divs.style.backgroundColor = divsColor;})
     divs.addEventListener('mouseover' , ()=> {if(mouseDown===1){divs.style.backgroundColor =divsColor;}})
@@ -76,6 +74,8 @@ changeDensityButton.addEventListener('click' ,()=>{//open and close density menu
     }
 
 } )
+
+
 
 
 
