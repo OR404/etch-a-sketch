@@ -1,6 +1,7 @@
 body {
     background-image: url('images/clouds.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .title {
@@ -24,7 +25,22 @@ h1 {
     border-style: solid;
     border-width: 12px;
     border-radius: 5px;
-    margin: 0px 40px 0px 40px;
+    min-height: 200px;
+    max-height: 80vh;
+    margin: auto;
+    display: flex;
+    aspect-ratio: 1 / 1;
+}
+.grid-vertical-item{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+.grid-horizontal-item{
+    border-width: 2px;
+    flex: 1; /* Shrink pixels to board size*/
+    background-color: white;
 }
 
 .bottom-buttons {
@@ -49,9 +65,9 @@ button {
     align-items: center;
 }
 
-.change-color-div>.color-menu , .density-menu {
+.menu{
+    visibility: hidden; /* Menu is hidden by default*/
     transform:translateY(-160px);
-    display: none;
     width: 250px;
     height: 147px;
     text-align: center;
@@ -62,12 +78,15 @@ button {
     border-radius: 3mm;
 }
 
-.color-menu>li{
+.color-menu > li{
     list-style: none;
     cursor: pointer;
 }
+.color-menu > li:hover{
+    border: solid black 1mm;
+}
 
-.change-density-div {
+.change-density {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,7 +94,7 @@ button {
 
 .density-menu {
     display: flex;
-    visibility: hidden;/*beacuse of input elements display:flex doesnt work when page refreshed*/
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
@@ -90,7 +109,6 @@ input {
     text-align: center;
     font-size: 22px;
     border-radius: 3mm;
-    
 }
 
 
